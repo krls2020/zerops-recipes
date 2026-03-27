@@ -1,39 +1,26 @@
-# Laravel Hello World
+# Laravel Hello World Recipe
 
-A minimal Laravel 11 application deployed on Zerops. Demonstrates PHP-FPM + Nginx via `php-nginx@8.4`, PostgreSQL integration, multi-container-safe migrations with `zsc execOnce`, and the `extends: base` pattern for sharing config between prod and dev setups.
+<!-- #ZEROPS_EXTRACT_START:intro# -->
+A minimal [Laravel 11](https://laravel.com) application connected to [PostgreSQL](https://www.postgresql.org/), running on [Zerops](https://zerops.io) with six ready-made environment configurations — from AI agent and remote development to stage and highly-available production. Demonstrates PHP-FPM + Nginx via `php-nginx@8.4`, multi-container-safe migrations, and the `extends: base` pattern.
+<!-- #ZEROPS_EXTRACT_END:intro# -->
 
-[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/green/deploy-button.svg)](https://app.zerops.io/recipe/laravel-hello-world)
+⬇️ **Full recipe page and deploy with one-click**
 
-## App repository
+[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/light/deploy-button.svg)](https://app.zerops.io/recipes/laravel-hello-world?environment=small-production)
 
-[github.com/zerops-recipe-apps/laravel-hello-world-app](https://github.com/zerops-recipe-apps/laravel-hello-world-app)
+![laravel](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-laravel.svg)
 
-## Environments
+Offered in examples for the whole development lifecycle — from environments for AI agents like [Claude Code](https://www.anthropic.com/claude-code) or [opencode](https://opencode.ai) through environments for remote (CDE) or local development of each developer to stage and productions of all sizes.
 
-| # | Environment | App services | DB mode | Use case |
-|---|-------------|-------------|---------|---------|
-| 0 | [AI Agent](./0%20—%20AI%20Agent/) | `appdev` + `appstage` | NON_HA | AI agent builds the recipe from scratch |
-| 1 | [Remote (CDE)](./1%20—%20Remote%20(CDE)/) | `appdev` + `appstage` | NON_HA | Cloud development via SSH/SSHFS |
-| 2 | [Local](./2%20—%20Local/) | _(none — run locally)_ | NON_HA | Local PHP server + Zerops PostgreSQL via VPN |
-| 3 | [Stage](./3%20—%20Stage/) | `app` (1 container) | NON_HA | Pre-production validation |
-| 4 | [Small Production](./4%20—%20Small%20Production/) | `app` (1 container) | HA | Low-to-medium traffic production |
-| 5 | [Highly-available Production](./5%20—%20Highly-available%20Production/) | `app` (2–6 containers) | HA | Fault-tolerant production |
+- **AI agent** [[info]](/0%20—%20AI%20Agent) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=ai-agent)
+- **Remote (CDE)** [[info]](/1%20—%20Remote%20(CDE)) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=remote-cde)
+- **Local** [[info]](/2%20—%20Local) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=local)
+- **Stage** [[info]](/3%20—%20Stage) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=stage)
+- **Small Production** [[info]](/4%20—%20Small%20Production) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=small-production)
+- **Highly-available Production** [[info]](/5%20—%20Highly-available%20Production) — [[deploy with one click]](https://app.zerops.io/recipes/laravel-hello-world?environment=highly-available-production)
 
-## What the app demonstrates
+---
 
-- **`php-nginx@8.4`** — PHP-FPM + Nginx service type; Zerops wires FPM and Nginx automatically
-- **`extends: base`** — shared env vars (DB credentials, `APP_URL`, `LOG_CHANNEL`) inherited by both `prod` and `dev` setups
-- **Build path vs runtime path** — `config:cache` runs in `initCommands` (not `buildCommands`) because build containers use `/build/source/` while runtime uses `/var/www/`
-- **`zsc execOnce`** — ensures `php artisan migrate` runs exactly once across multi-container deploys
-- **`APP_MAINTENANCE_DRIVER=cache`** — maintenance mode flag stored in the shared database cache, visible to all containers simultaneously
-- **`COMPOSER_HOME=/tmp/composer`** — required in dev `initCommands` because runtime containers don't set `HOME`
+For more advanced examples see all [Laravel recipes](https://app.zerops.io/recipes?lf=laravel) on Zerops.
 
-## Tech stack
-
-| Layer | Technology |
-|-------|-----------|
-| Language | PHP 8.4 |
-| Framework | Laravel 11 |
-| Web server | Nginx + PHP-FPM (`php-nginx@8.4`) |
-| Database | PostgreSQL 16 |
-| Template engine | Blade |
+Need help setting your project up? Join [Zerops Discord community](https://discord.gg/zeropsio).
