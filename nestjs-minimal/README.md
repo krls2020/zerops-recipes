@@ -1,31 +1,26 @@
 # NestJS Minimal Recipe
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-A minimal [NestJS](https://nestjs.com) application running on Zerops with PostgreSQL. Uses TypeORM for database access, EJS templates for a server-rendered dashboard, and framework-native migrations. Demonstrates NestJS modules, decorators, and dependency injection in a production-ready Zerops deployment.
+A minimal [NestJS](https://nestjs.com) application connected to [PostgreSQL](https://www.postgresql.org/), running on [Zerops](https://zerops.io) with six ready-made environment configurations — from AI agent and remote development to stage and highly-available production. Uses TypeORM for database access, EJS templates for a server-rendered dashboard, and framework-native migrations.
 <!-- #ZEROPS_EXTRACT_END:intro# -->
 
-[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/deploy-button.svg?raw=true)](https://app.zerops.io/recipe/nestjs-minimal)
+⬇️ **Full recipe page and deploy with one-click**
 
-![NestJS Minimal](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/cover-nestjs.svg?raw=true)
+[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/light/deploy-button.svg)](https://app.zerops.io/recipes/nestjs-minimal?environment=small-production)
 
-## Environments
+![nestjs](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-nestjs.svg)
 
-| Environment | Description |
-|---|---|
-| [AI Agent](<0 — AI Agent/>) | Development space for AI agents with dev + staging services |
-| [Remote (CDE)](<1 — Remote (CDE)/>) | Cloud development environment via SSH |
-| [Local](<2 — Local/>) | Local development with Zerops VPN |
-| [Stage](<3 — Stage/>) | Pre-production validation, single container |
-| [Small Production](<4 — Small Production/>) | Multi-container deployment for availability |
-| [Highly-available Production](<5 — Highly-available Production/>) | Full HA with dedicated resources |
+Offered in examples for the whole development lifecycle — from environments for AI agents like [Claude Code](https://www.anthropic.com/claude-code) or [opencode](https://opencode.ai) through environments for remote (CDE) or local development of each developer to stage and productions of all sizes.
 
-## Related
-
-- [NestJS Hello World](../nestjs-hello-world/) — Simpler variant without framework conventions (raw HTTP + SQL)
-- [NestJS Minimal App](https://github.com/krls2020/nestjs-minimal-app) — Application source code with documented zerops.yaml
+- **AI agent** [[info]](/0%20—%20AI%20Agent) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=ai-agent)
+- **Remote (CDE)** [[info]](/1%20—%20Remote%20(CDE)) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=remote-cde)
+- **Local** [[info]](/2%20—%20Local) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=local)
+- **Stage** [[info]](/3%20—%20Stage) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=stage)
+- **Small Production** [[info]](/4%20—%20Small%20Production) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=small-production)
+- **Highly-available Production** [[info]](/5%20—%20Highly-available%20Production) — [[deploy with one click]](https://app.zerops.io/recipes/nestjs-minimal?environment=highly-available-production)
 
 ---
 
-<p align="center">
-  <a href="https://discord.com/invite/WDvCZ54" target="_blank">Need help? Join our Discord</a>
-</p>
+For more advanced examples see all [NestJS recipes](https://app.zerops.io/recipes?lf=nestjs) on Zerops.
+
+Need help setting your project up? Join [Zerops Discord community](https://discord.gg/zeropsio).

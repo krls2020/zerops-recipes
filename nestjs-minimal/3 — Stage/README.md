@@ -1,5 +1,7 @@
-# NestJS Minimal — Stage
+# NestJS Minimal — Stage Environment
+
+This is a stage environment for [NestJS Minimal (info + deploy)](https://app.zerops.io/recipes/nestjs-minimal?environment=stage) recipe on [Zerops](https://zerops.io).
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-**Stage** environment runs a single container with production configuration — same build pipeline, migrations, and health checks as production. Use it for pre-release validation at minimal cost. Single container keeps expenses low while still exercising the full deployment workflow.
+**Stage** environment uses the same configuration as production, but runs on a single container with lower scaling settings.
 <!-- #ZEROPS_EXTRACT_END:intro# -->

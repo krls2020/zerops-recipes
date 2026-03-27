@@ -1,5 +1,8 @@
-# NestJS Minimal — AI Agent
+# NestJS Minimal — AI Agent Environment
+
+This is an AI agent environment for [NestJS Minimal (info + deploy)](https://app.zerops.io/recipes/nestjs-minimal?environment=ai-agent) recipe on [Zerops](https://zerops.io).
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-**AI agent** environment provides a development space for AI agents to build and version the app. Comes with a dev service with the source code and NestJS development tools, a staging service for validating production builds, and a low-resource PostgreSQL database. Agent develops on the dev service via SSH and validates on staging before completing the task.
+**AI agent** environment provides a development space for AI agents to build and version the app.
+It includes a dev service with the code repository and necessary development tools, a staging service, and a low-resource database.
 <!-- #ZEROPS_EXTRACT_END:intro# -->

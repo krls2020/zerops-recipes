@@ -1,5 +1,7 @@
-# NestJS Minimal — Small Production
+# NestJS Minimal — Small Production Environment
+
+This is a small production environment for [NestJS Minimal (info + deploy)](https://app.zerops.io/recipes/nestjs-minimal?environment=small-production) recipe on [Zerops](https://zerops.io).
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-**Small production** environment runs two app containers for zero-downtime rolling deploys and basic availability. Zerops automatically routes traffic away from containers being replaced. Suitable for low-to-medium traffic applications that need continuous uptime without the cost of full HA infrastructure.
+**Small production** environment offers a production-ready setup optimized for moderate throughput.
 <!-- #ZEROPS_EXTRACT_END:intro# -->

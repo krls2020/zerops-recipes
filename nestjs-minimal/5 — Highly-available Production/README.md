@@ -1,5 +1,7 @@
-# NestJS Minimal — Highly-available Production
+# NestJS Minimal — Highly-available Production Environment
+
+This is a highly-available production environment for [NestJS Minimal (info + deploy)](https://app.zerops.io/recipes/nestjs-minimal?environment=highly-available-production) recipe on [Zerops](https://zerops.io).
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-**Highly-available production** environment provides dedicated CPU cores, HA PostgreSQL with automatic failover, and SERIOUS core infrastructure for consistent latency. Two app containers ensure zero-downtime deploys. Suitable for production workloads requiring data durability and predictable performance under sustained load.
+**Highly-available production** environment provides a production setup with enhanced scaling, dedicated resources, and HA components for improved durability and performance.
 <!-- #ZEROPS_EXTRACT_END:intro# -->

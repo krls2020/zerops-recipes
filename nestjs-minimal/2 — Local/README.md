@@ -1,5 +1,7 @@
-# NestJS Minimal — Local
+# NestJS Minimal — Local Environment
+
+This is a local environment for [NestJS Minimal (info + deploy)](https://app.zerops.io/recipes/nestjs-minimal?environment=local) recipe on [Zerops](https://zerops.io).
 
 <!-- #ZEROPS_EXTRACT_START:intro# -->
-**Local** environment lets you develop on your own machine while using Zerops-managed services. Run `zcli vpn up` to connect your local network to Zerops, then start NestJS locally with `npm run start:dev` — the database is accessible at `db:5432`. Use `zcli push` to validate the production build pipeline.
+**Local** environment supports local app development using zCLI VPN for database access, while ensuring valid deployment processes using a staged app in Zerops.
 <!-- #ZEROPS_EXTRACT_END:intro# -->
