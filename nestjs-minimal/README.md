@@ -12,12 +12,12 @@ A minimal [NestJS](https://nestjs.com) application running on Zerops with Postgr
 
 | Environment | Description |
 |---|---|
-| [AI Agent](agent/) | Development space for AI agents with dev + staging services |
-| [Remote (CDE)](remote/) | Cloud development environment via SSH |
-| [Local](local/) | Local development with Zerops VPN |
-| [Stage](stage/) | Pre-production validation, single container |
-| [Small Production](small-production/) | Multi-container deployment for availability |
-| [Highly-available Production](highly-available-production/) | Full HA with dedicated resources |
+| [AI Agent](<0 — AI Agent/>) | Development space for AI agents with dev + staging services |
+| [Remote (CDE)](<1 — Remote (CDE)/>) | Cloud development environment via SSH |
+| [Local](<2 — Local/>) | Local development with Zerops VPN |
+| [Stage](<3 — Stage/>) | Pre-production validation, single container |
+| [Small Production](<4 — Small Production/>) | Multi-container deployment for availability |
+| [Highly-available Production](<5 — Highly-available Production/>) | Full HA with dedicated resources |
 
 ## Related
 
