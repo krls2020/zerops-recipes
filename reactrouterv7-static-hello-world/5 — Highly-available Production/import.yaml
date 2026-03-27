@@ -16,7 +16,7 @@ services:
     type: static
     # Zerops pulls the source code and zerops.yaml from this
     # public repo to trigger the build/deploy pipeline.
-    buildFromGit: https://github.com/zerops-recipe-apps/reactrouterv7-static-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/react-router-static-hello-world-app
     # Selects the 'prod' setup — Node.js compiles the React
     # Router v7 SPA into static assets; Nginx serves them.
     # The build container is deleted after deploy; Node.js is

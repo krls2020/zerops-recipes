@@ -17,7 +17,7 @@ services:
     # buildFromGit: Zerops pulls source code and
     # zerops.yaml from this public repository on the
     # first deploy.
-    buildFromGit: https://github.com/zerops-recipe-apps/laravel-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/laravel-minimal-app
     enableSubdomainAccess: true
     # envSecrets: APP_KEY persisted across deploys.
     # zeropsPreprocessor generates a random 32-byte value.

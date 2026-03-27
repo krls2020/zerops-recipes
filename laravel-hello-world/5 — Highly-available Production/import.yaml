@@ -5,6 +5,9 @@
 # for production workloads that require fault tolerance.
 project:
   name: laravel-hello-world-prod-ha
+  # SERIOUS core: dedicated infrastructure for the project's balancer, logging, and metrics.
+  # Eliminates shared-tenant overhead — essential for consistent latency at production scale.
+  corePackage: SERIOUS
 
 services:
   # Production app — minimum 2 containers ensure no
@@ -16,13 +19,14 @@ services:
   - hostname: app
     type: php-nginx@8.4
     zeropsSetup: prod
-    buildFromGit: https://github.com/zerops-recipe-apps/laravel-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/laravel-minimal-app
     enableSubdomainAccess: true
     # envSecrets: persisted across deploys.
     # Replace with your own APP_KEY before going live.
     envSecrets:
       APP_KEY: <@generateRandomString(<32>)>
     verticalAutoscaling:
+      cpuMode: DEDICATED
       minRam: 0.5
       maxRam: 4
       minCpu: 0.5

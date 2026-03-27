@@ -20,7 +20,7 @@ services:
     # zerops.yaml from this public repository on the
     # first deploy. One of several triggers — teams
     # typically switch to zcli push or git integration.
-    buildFromGit: https://github.com/zerops-recipe-apps/laravel-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/laravel-minimal-app
     enableSubdomainAccess: true
     # envSecrets: sensitive values set once at import time,
     # persisted across deploys. APP_KEY is a 32-byte
@@ -36,7 +36,7 @@ services:
   - hostname: appstage
     type: php-nginx@8.4
     zeropsSetup: prod
-    buildFromGit: https://github.com/zerops-recipe-apps/laravel-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/laravel-minimal-app
     enableSubdomainAccess: true
     envSecrets:
       APP_KEY: <@generateRandomString(<32>)>

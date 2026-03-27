@@ -17,7 +17,7 @@ services:
     # Zerops pulls the source code and zerops.yaml from this
     # public repo for the initial deploy. Subsequent deploys
     # use 'zcli push' from the developer's local machine.
-    buildFromGit: https://github.com/zerops-recipe-apps/reactrouterv7-static-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/react-router-static-hello-world-app
     # Selects the 'prod' setup — Node.js builds the React Router
     # SPA into static assets; Nginx serves them at runtime.
     zeropsSetup: prod

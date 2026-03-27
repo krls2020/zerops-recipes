@@ -20,7 +20,7 @@ services:
     type: nodejs@22
     # Zerops pulls the source code and zerops.yaml from this
     # public repo to trigger the build/deploy pipeline.
-    buildFromGit: https://github.com/zerops-recipe-apps/reactrouterv7-static-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/react-router-static-hello-world-app
     # Selects the 'dev' setup — deploys source to a Node.js
     # container so the developer has a ready workspace on login.
     zeropsSetup: dev
@@ -35,7 +35,7 @@ services:
   # to validate production builds during development.
   - hostname: appstage
     type: static
-    buildFromGit: https://github.com/zerops-recipe-apps/reactrouterv7-static-hello-world-app
+    buildFromGit: https://github.com/zerops-recipe-apps/react-router-static-hello-world-app
     # Selects the 'prod' setup — compiles static assets with
     # Node.js and serves via Nginx. Node.js absent at runtime.
     zeropsSetup: prod
