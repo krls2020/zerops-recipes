@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://api.app-prg1.zerops.io/api/rest/public/settings/import-project-yaml-json-schema.json
+
+# Remote (CDE) environment provides a cloud development environment accessible via SSH.
+# Developers connect using VS Code Remote SSH, JetBrains Gateway, or plain SSH and work
+# directly on the dev service. Staging service validates the production build pipeline.
+
+project:
+  name: nestjs-minimal-remote
+
+services:
+  # Development workspace for remote coding. Zerops deploys full source with Node.js
+  # pre-installed. Connect via SSH and run 'npm run start:dev' for hot-reload.
+  # For large NestJS projects with heavy TypeScript compilation, consider increasing
+  # minRam to 2–4 GB via the Zerops dashboard.
+  - hostname: appdev
+    type: nodejs@22
+    zeropsSetup: dev
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.5
+
+  # Staging service — validates the production build pipeline. Developer pushes
+  # code via 'zcli push' to verify that TypeScript compilation, migrations, and
+  # health checks work before promoting to production.
+  - hostname: appstage
+    type: nodejs@22
+    zeropsSetup: prod
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.5
+
+  # PostgreSQL single-node database shared by both services.
+  # Priority 10 starts the database before app services.
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 10
+    verticalAutoscaling:
+      minRam: 0.25

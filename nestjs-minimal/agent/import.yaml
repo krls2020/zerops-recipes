@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://api.app-prg1.zerops.io/api/rest/public/settings/import-project-yaml-json-schema.json
+
+# AI agent environment provides a development space for AI agents to build and version the app.
+# It includes a dev service with the source code and NestJS dev tools, a staging service
+# for validating production builds, and a low-resource PostgreSQL database.
+
+project:
+  name: nestjs-minimal-agent
+
+services:
+  # Development workspace for AI agents. Zerops pulls source code and zerops.yaml from
+  # the 'buildFromGit' repo, then uses the 'dev' zeropsSetup — which deploys full source
+  # with Node.js pre-installed. Agent SSHs in and runs 'npm run start:dev' for hot-reload.
+  # Subdomain gives the agent a URL to inspect output.
+  - hostname: appdev
+    type: nodejs@22
+    zeropsSetup: dev
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.5
+
+  # Staging service — agent deploys here via 'zcli push' to validate the production build
+  # pipeline before considering the task complete. Uses 'prod' setup: TypeScript compiles
+  # to dist/, only production node_modules deployed.
+  - hostname: appstage
+    type: nodejs@22
+    zeropsSetup: prod
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.5
+
+  # PostgreSQL single-node database for development — shared by both appdev and appstage.
+  # NON_HA is appropriate for dev/staging where high-availability isn't required.
+  # Priority 10 ensures the database starts before the app services, preventing
+  # connection errors during container startup.
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 10
+    verticalAutoscaling:
+      minRam: 0.25

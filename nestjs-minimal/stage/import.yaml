@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://api.app-prg1.zerops.io/api/rest/public/settings/import-project-yaml-json-schema.json
+
+# Stage environment runs a single container with production configuration.
+# Validates the full production pipeline (build, migrations, health checks)
+# at minimal cost before promoting to production.
+
+project:
+  name: nestjs-minimal-stage
+
+services:
+  # Production build in a single container. Uses 'prod' setup: TypeScript compiles
+  # to dist/, migrations run via zsc execOnce, readiness check gates traffic.
+  # V8 GC needs headroom — minFreeRamGB reserves memory for garbage collection
+  # spikes during SSR or heavy request processing.
+  - hostname: app
+    type: nodejs@22
+    zeropsSetup: prod
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.25
+      minFreeRamGB: 0.125
+
+  # Single-node PostgreSQL for staging. Mirrors production schema and config
+  # but without the overhead of HA replication.
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 10
+    verticalAutoscaling:
+      minRam: 0.25
+      minFreeRamGB: 0.125
