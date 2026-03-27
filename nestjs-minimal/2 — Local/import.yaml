@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://api.app-prg1.zerops.io/api/rest/public/settings/import-project-yaml-json-schema.json
+
+# Local development environment — developer runs the NestJS app on their machine
+# and connects to Zerops services via VPN. 'zcli vpn up' bridges the local network
+# to the Zerops internal network, making 'db' hostname resolvable locally.
+
+project:
+  name: nestjs-minimal-local
+
+services:
+  # Single app service for validating production builds. Developer runs NestJS
+  # locally with hot-reload ('npm run start:dev') and uses 'zcli push' to test
+  # the production pipeline before promoting.
+  - hostname: app
+    type: nodejs@22
+    zeropsSetup: prod
+    buildFromGit: https://github.com/krls2020/nestjs-minimal-app
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 0.25
+
+  # PostgreSQL accessible via VPN. With 'zcli vpn up', the developer's machine
+  # can reach this database at 'db:5432' — same connection string as production.
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 10
+    verticalAutoscaling:
+      minRam: 0.25
